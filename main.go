@@ -13,6 +13,7 @@ func main() {
 func setupApi() {
 	ctx := context.Background()
 	manager := NewManager(ctx)
+	manager.setupEventHandlers()
 	http.Handle("/", http.FileServer(http.Dir("./frontend")))
 	http.HandleFunc("/ws", manager.serveWs)
 	http.HandleFunc("/login", manager.loginHandler)

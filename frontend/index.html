@@ -3,7 +3,7 @@
   <link>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WebSocket Chatroom</title>
+    <title>CoEditor Comments POC</title>
     <link rel="stylesheet" href="index.css"/>
     <link rel="icon" href="/favicon.png" type="image/x-icon">
     <link rel="icon" href="/favicon.png" type="image/png">
@@ -12,50 +12,40 @@
 
   <body>
     <div class="center">
-      <h1>Chat Application Frontend</h1>
-      <h3 id="chat-header">Currently in chat: General</h3>
+      <h1>CoEditor Comments POC</h1>
+      <h3 id="chat-header">Currently in thread: General</h3>
       <h3 id="connection-header">Connected to websocket: false</h3>
 
       <form action="" id="chatroom-selection">
-        <label for="chatroom">Chatroom:</label>
+        <label for="chatroom">Thread:</label>
         <input
           type="text"
-          placeholder="Enter your message"
+          placeholder="Enter thread name"
           id="chatroom"
           name="chatroom"
         />
         <br /><br />
 
-        <input type="submit" value="Change Chatroom" />
+        <input type="submit" value="View" />
       </form>
 
       <br />
-      <textarea
-        class="messagearea"
-        id="chatmessages"
-        cols="30"
-        rows="10"
-        readonly
-        name="chatMessages"
-        placeholder="Welcome to Chatroom"
-      ></textarea>
+      <div id="chatmessages" class="chat-thread" style="min-height:250px;max-height:400px;overflow-y:auto;"></div>
       <br> <br>
       <form action="" id="chatroom-message">
         <label for="message"> Message:</label>
         <br /><br />
         <input type="text" name="message" id="message" />
         <br><br>
-        <input type="submit" value="send message" />
+        <input type="submit" value="Send" />
       </form>
 
-      <div style = "border: 3px solid black; margin-top:30px;">
+      <div>
         <form action="" id = "login-form">
           <label for="username"> username:</label>
           <input type="text" name="username" id="username"><br>
           <label for="password"> password:</label>
           <input type="password" name="password" id="password">
-
-          <br /><br />
           <input type="submit" value="login">
         </form>
       </div>
